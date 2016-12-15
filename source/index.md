@@ -16,7 +16,7 @@ search: true
 
 # Introduction
 
-Welcome to the Riviera Build API! You can use our API to access Riviera Build API endpoints, which can get information on the applications you have access to, builds uploaded, even upload new builds!
+Welcome to the BetaCrash API! You can use our API to access BetaCrash API endpoints, which can get information on the applications you have access to, builds uploaded, even upload new builds!
 
 # Authentication
 
@@ -30,9 +30,9 @@ curl "https://apps.betacrash.com/v1/applications"
 
 > Make sure to replace `your-api-key` with your API key.
 
-Riviera Build uses API keys to allow access to the API. You can get your Riviera Build API key in the [settings section](https://apps.betacrash.com/settings).
+BetaCrash uses API keys to allow access to the API. You can get your BetaCrash API key in the [settings section](https://apps.betacrash.com/settings).
 
-Riviera Build expects for the API key to be included in all API requests to the server in a header that looks like the following:
+BetaCrash expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
 `api-key: your-api-key`
 
@@ -163,7 +163,7 @@ curl -XPOST "https://apps.betacrash.com/v1/builds"
 }
 ```
 
-This endpoint uploads a build to Riviera Build.
+This endpoint uploads a build to BetaCrash.
 
 ### HTTP Request
 
@@ -203,7 +203,7 @@ curl -XGET "https://apps.betacrash.com/v1/applications/1/builds/latest"
 }
 ```
 
-This endpoint uploads a build to Riviera Build.
+This endpoint uploads a build to BetaCrash.
 
 ### HTTP Request
 
@@ -230,7 +230,7 @@ OUTPUT=$(/usr/bin/curl "https://apps.betacrash.com/api/upload" -F api_key="${API
 URL=$(echo $OUTPUT | python -m json.tool | sed -n -e '/"file_url":/ s/^.*"\(.*\)".*/\1/p')
 
 echo $URL | pbcopy
-osascript -e 'display notification "Copied to clipboard: '$URL'" with title "Riviera Build"'
+osascript -e 'display notification "Copied to clipboard: '$URL'" with title "BetaCrash"'
 open $URL
 ```
 To upload a build everytime you create an archive:
