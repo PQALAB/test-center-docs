@@ -24,8 +24,7 @@ Welcome to the BetaCrash API! You can use our API to access BetaCrash API endpoi
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "https://apps.betacrash.com/v1/applications"
-  -H "api-key: your-api-key"
+curl "https://apps.betacrash.com/v1/applications" --header "api-key": "your-api-key"
 ```
 
 > Make sure to replace `your-api-key` with your API key.
@@ -47,8 +46,7 @@ Applications are to Betacrash, what folders are to file systems. It allows you t
 ## Get All applications
 
 ```shell
-curl "https://apps.betacrash.com/v1/applications"
-  -H "api-key: your-api-key"
+curl "https://apps.betacrash.com/v1/applications" --header "api-key": "your-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -80,8 +78,7 @@ This endpoint retrieves all applications.
 ## Create an application
 
 ```shell
-curl -XPOST "https://apps.betacrash.com/v1/applications"
-  -H "api-key: your-api-key"
+curl -XPOST "https://apps.betacrash.com/v1/applications" --header "api-key": "your-api-key"
   -F 'application[name]=Example App'
   -F file=@"/path/to/the/image/to/upload"
 ```
@@ -115,8 +112,7 @@ file | Logo image file, as part of the the POST body (Optional)
 ## Delete an application
 
 ```shell
-curl -XDELETE "https://apps.betacrash.com/v1/applications/1"
-  -H "api-key: your-api-key"
+curl -XDELETE "https://apps.betacrash.com/v1/applications/1" --header "api-key": "your-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -144,8 +140,7 @@ ID | Application ID
 ## Upload a build
 
 ```shell
-curl -XPOST "https://apps.betacrash.com/v1/builds"
-  -H "api-key: your-api-key"
+curl -XPOST "https://apps.betacrash.com/v1/builds" --header "api-key": "your-api-key"
   -F file=@"/path/to/ipa/file"
   -F availability="1_week"
   -F passcode="secretpassword"
@@ -183,8 +178,7 @@ note | Optional release note. Support Markdown.
 ## Latest build
 
 ```shell
-curl -XGET "https://apps.betacrash.com/v1/applications/1/builds/latest"
-  -H "api-key: your-api-key"
+curl -XGET "https://apps.betacrash.com/v1/applications/1/builds/latest" --header "api-key": "your-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -233,6 +227,37 @@ echo $URL | pbcopy
 osascript -e 'display notification "Copied to clipboard: '$URL'" with title "BetaCrash"'
 open $URL
 ```
+To upload a build everytime you create an archive:
+
+* Open your project
+* Edit the scheme of the target of your application
+* Unfold the Archive section
+* Select the Post-actions item
+* Tap on the small '+' to add a script
+* Make sure to select the target or your application (to use its configuration).
+* Customize the script (password, availability etc)
+* You can now launch the Archive command: it will, at the end, open the uploaded link into your webbrowser, you'll also have the link in your clipboard
+
+#Slack Integration
+## Incoming Webhook Notifications
+
+```shell
+API_KEY="you-api-key"
+APP_ID="your-app-id" #example: 1
+PASSWORD="your-password"
+AVAILABILITY="10_minutes" #10_minutes, 1_hour, 3_hours, 6_hours, 12_hours, 24_hours, forever
+TMP_FILE_PATH="/tmp/${PRODUCT_NAME}.ipa"
+
+xcrun -sdk iphoneos PackageApplication "$ARCHIVE_PRODUCTS_PATH/$INSTALL_PATH/$WRAPPER_NAME" -o "${TMP_FILE_PATH}"
+OUTPUT=$(/usr/bin/curl "https://apps.betacrash.com/api/upload" -F api_key="${API_KEY}" -F app_id="${APP_ID}" -F file=@"${TMP_FILE_PATH}" -F availability="${AVAILABILITY}" -F passcode="${PASSWORD}") #the password parametre is optional here
+URL=$(echo $OUTPUT | python -m json.tool | sed -n -e '/"file_url":/ s/^.*"\(.*\)".*/\1/p')
+
+echo $URL | pbcopy
+osascript -e 'display notification "Copied to clipboard: '$URL'" with title "BetaCrash"'
+open $URL
+```
+
+
 To upload a build everytime you create an archive:
 
 * Open your project
