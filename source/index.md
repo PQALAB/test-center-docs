@@ -29,7 +29,7 @@ curl "https://apps.betacrash.com/v1/applications" --header "api-key": "your-api-
 
 > Make sure to replace `your-api-key` with your API key.
 
-BetaCrash uses API keys to allow access to the API. You can get your BetaCrash API key in the [settings section](https://apps.betacrash.com/settings).
+BetaCrash uses API keys to allow access to the API. You can find your BetaCrash API key in the [accounts section](https://apps.betacrash.com/accounts).
 
 BetaCrash expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
