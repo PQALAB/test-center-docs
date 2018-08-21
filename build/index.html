@@ -22,11 +22,11 @@
     <a href="#" id="nav-button">
       <span>
         NAV
-        <img src="images/navbar.png" />
+        <img src="images/navbar.png" alt="Navbar" />
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" />
+      <img src="images/logo.png" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
         </div>
@@ -181,13 +181,18 @@ You must replace `your-api-key` with your personal API key.
 <h1 id="builds">Builds</h1>
 
 <h2 id="upload-a-build">Upload a build</h2>
-<pre><code class="highlight shell">curl -XPOST <span class="s2">"https://apps.betacrash.com/v1/builds"</span> --header <span class="s2">"api-key"</span>: <span class="s2">"your-api-key"</span>
-  -F <span class="nv">file</span><span class="o">=</span>@<span class="s2">"/path/to/ipa/file"</span>
-  -F <span class="nv">availability</span><span class="o">=</span><span class="s2">"1_week"</span>
-  -F <span class="nv">passcode</span><span class="o">=</span><span class="s2">"secretpassword"</span>
-  -F <span class="nv">app_id</span><span class="o">=</span><span class="s2">"1"</span>
-  -F <span class="nv">commit_sha</span><span class="o">=</span><span class="s2">"ewtotj4535ogjropgjerotj3"</span>
-  -F <span class="nv">note</span><span class="o">=</span><span class="s2">"This build is awesome!"</span>
+<pre><code class="highlight shell">  curl -X POST <span class="se">\</span>
+  https://apps.betacrash.com/v1/builds <span class="se">\</span>
+  -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'Postman-Token: 371babbb-def2-4c4b-b584-a25237d97c33'</span> <span class="se">\</span>
+  -H <span class="s1">'api-key: 561357e82a8da5330cf81c9d6e931932d3bd2517'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
+  -F <span class="nv">availability</span><span class="o">=</span>1_week <span class="se">\</span>
+  -F <span class="nv">passcode</span><span class="o">=</span>toad <span class="se">\</span>
+  -F <span class="nv">app_id</span><span class="o">=</span>1 <span class="se">\</span>
+  -F <span class="nv">commit_sha</span><span class="o">=</span>ewtotj4535ogjropgjerotj3 <span class="se">\</span>
+  -F <span class="s1">'note=This build is awesome'</span> <span class="se">\</span>
+  -F <span class="s1">'file=@/Users/dale/Downloads/moo (1).apk'</span>
 </code></pre>
 
 <blockquote>
