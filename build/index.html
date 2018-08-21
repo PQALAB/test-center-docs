@@ -183,16 +183,13 @@ You must replace `your-api-key` with your personal API key.
 <h2 id="upload-a-build">Upload a build</h2>
 <pre><code class="highlight shell">  curl -X POST <span class="se">\</span>
   https://apps.betacrash.com/v1/builds <span class="se">\</span>
-  -H <span class="s1">'Cache-Control: no-cache'</span> <span class="se">\</span>
-  -H <span class="s1">'Postman-Token: 371babbb-def2-4c4b-b584-a25237d97c33'</span> <span class="se">\</span>
-  -H <span class="s1">'api-key: 561357e82a8da5330cf81c9d6e931932d3bd2517'</span> <span class="se">\</span>
+  -H <span class="s1">'api-key: &lt;your-api-key&gt;'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW'</span> <span class="se">\</span>
   -F <span class="nv">availability</span><span class="o">=</span>1_week <span class="se">\</span>
   -F <span class="nv">passcode</span><span class="o">=</span>toad <span class="se">\</span>
   -F <span class="nv">app_id</span><span class="o">=</span>1 <span class="se">\</span>
-  -F <span class="nv">commit_sha</span><span class="o">=</span>ewtotj4535ogjropgjerotj3 <span class="se">\</span>
   -F <span class="s1">'note=This build is awesome'</span> <span class="se">\</span>
-  -F <span class="s1">'file=@/Users/dale/Downloads/moo (1).apk'</span>
+  -F <span class="s1">'file=@/path/to/file'</span>
 </code></pre>
 
 <blockquote>

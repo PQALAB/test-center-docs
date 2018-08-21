@@ -143,7 +143,7 @@ ID | Application ID
   curl -X POST \
   https://apps.betacrash.com/v1/builds \
   -H 'api-key: <your-api-key>' \
-  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -H 'content-type: multipart/form-data \
   -F availability=1_week \
   -F passcode=toad \
   -F app_id=1 \
