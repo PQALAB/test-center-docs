@@ -140,13 +140,18 @@ ID | Application ID
 ## Upload a build
 
 ```shell
-curl -XPOST "https://apps.betacrash.com/v1/builds" --header "api-key": "your-api-key"
-  -F file=@"/path/to/ipa/file"
-  -F availability="1_week"
-  -F passcode="secretpassword"
-  -F app_id="1"
-  -F commit_sha="ewtotj4535ogjropgjerotj3"
-  -F note="This build is awesome!"
+  curl -X POST \
+  https://apps.betacrash.com/v1/builds \
+  -H 'Cache-Control: no-cache' \
+  -H 'Postman-Token: 371babbb-def2-4c4b-b584-a25237d97c33' \
+  -H 'api-key: 561357e82a8da5330cf81c9d6e931932d3bd2517' \
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -F availability=1_week \
+  -F passcode=toad \
+  -F app_id=1 \
+  -F commit_sha=ewtotj4535ogjropgjerotj3 \
+  -F 'note=This build is awesome' \
+  -F 'file=@/Users/dale/Downloads/moo (1).apk'
 ```
 
 > The above command returns JSON structured like this:
