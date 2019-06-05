@@ -48,6 +48,14 @@ html, body {
   width: 20px;
 }
 
+.white-text {
+  color: white;
+}
+
+body > div.tocify-wrapper > p {
+  text-align: center;
+}
+
 @mixin embossed-bg {
   @include background(
     linear-gradient(top,
@@ -64,6 +72,15 @@ html, body {
                     rgba($nav-embossed-border-bottom, 0) 1.5px),
     $nav-subitem-bg
   );
+}
+
+#logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  width: 100px;
+  height: 100px;
 }
 
 .tocify-wrapper {

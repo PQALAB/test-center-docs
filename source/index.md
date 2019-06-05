@@ -5,7 +5,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='https://apps.betacrash.com'>Sign Up for an API Key</a>
+  - <a href='https://testplatform.plusqa.com'>Sign Up for an API Key</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -16,7 +16,7 @@ search: true
 
 # Introduction
 
-Welcome to the BetaCrash API! You can use our API to access BetaCrash API endpoints, which can get information on the applications you have access to, builds uploaded, even upload new builds!
+Welcome to the TestCenter API! You can use our API to access TestCenter API endpoints, which can get information on the applications you have access to, builds uploaded, even upload new builds!
 
 # Authentication
 
@@ -24,14 +24,14 @@ Welcome to the BetaCrash API! You can use our API to access BetaCrash API endpoi
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "https://apps.betacrash.com/v1/applications" --header "api-key": "your-api-key"
+curl "https://testplatform.plusqa.com/v1/applications" --header "api-key": "your-api-key"
 ```
 
 > Make sure to replace `your-api-key` with your API key.
 
-BetaCrash uses API keys to allow access to the API. You can find your BetaCrash API key in the [accounts section](https://apps.betacrash.com/accounts).
+TestCenter uses API keys to allow access to the API. You can find your TestCenter API key in the [accounts section](https://testplatform.plusqa.com/accounts).
 
-BetaCrash expects for the API key to be included in all API requests to the server in a header that looks like the following:
+TestCenter expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
 `api-key: your-api-key`
 
@@ -41,12 +41,12 @@ You must replace `your-api-key` with your personal API key.
 
 # Applications
 
-Applications are to Betacrash, what folders are to file systems. It allows you to organize the builds you upload.  
+Applications are to TestCenter, what folders are to file systems. It allows you to organize the builds you upload.  
 
 ## Get All applications
 
 ```shell
-curl "https://apps.betacrash.com/v1/applications" --header "api-key": "your-api-key"
+curl "https://testplatform.plusqa.com/v1/applications" --header "api-key": "your-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -72,13 +72,13 @@ This endpoint retrieves all applications.
 
 ### HTTP Request
 
-`GET https://apps.betacrash.com/v1/applications`
+`GET https://testplatform.plusqa.com/v1/applications`
 
 
 ## Create an application
 
 ```shell
-curl -XPOST "https://apps.betacrash.com/v1/applications" --header "api-key": "your-api-key"
+curl -XPOST "https://testplatform.plusqa.com/v1/applications" --header "api-key": "your-api-key"
   -F 'application[name]=Example App'
   -F file=@"/path/to/the/image/to/upload"
 ```
@@ -99,7 +99,7 @@ This endpoint creates an application.
 
 ### HTTP Request
 
-`POST https://apps.betacrash.com/v1/applications`
+`POST https://testplatform.plusqa.com/v1/applications`
 
 ### Parameters
 
@@ -112,7 +112,7 @@ file | Logo image file, as part of the the POST body (Optional)
 ## Delete an application
 
 ```shell
-curl -XDELETE "https://apps.betacrash.com/v1/applications/1" --header "api-key": "your-api-key"
+curl -XDELETE "https://testplatform.plusqa.com/v1/applications/1" --header "api-key": "your-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -127,7 +127,7 @@ This endpoint deletes an application.
 
 ### HTTP Request
 
-`DELETE https://apps.betacrash.com/v1/applications/<ID>`
+`DELETE https://testplatform.plusqa.com/v1/applications/<ID>`
 
 ### Parameters
 
@@ -141,7 +141,7 @@ ID | Application ID
 
 ```shell
   curl -X POST \
-  https://apps.betacrash.com/v1/builds \
+  https://testplatform.plusqa.com/v1/builds \
   -H 'api-key: <your-api-key>' \
   -H 'content-type: multipart/form-data \
   -F availability=1_week \
@@ -156,15 +156,15 @@ ID | Application ID
 ```json
 {
   "success":true,
-  "file_url":"https://apps.betacrash.com/get/dovjek"
+  "file_url":"https://testplatform.plusqa.com/get/dovjek"
 }
 ```
 
-This endpoint uploads a build to BetaCrash.
+This endpoint uploads a build to TestCenter.
 
 ### HTTP Request
 
-`POST https://apps.betacrash.com/v1/builds`
+`POST https://testplatform.plusqa.com/v1/builds`
 
 ### Parameters
 
@@ -180,7 +180,7 @@ note | Optional release note. Support Markdown.
 ## Latest build
 
 ```shell
-curl -XGET "https://apps.betacrash.com/v1/applications/1/builds/latest" --header "api-key": "your-api-key"
+curl -XGET "https://testplatform.plusqa.com/v1/applications/1/builds/latest" --header "api-key": "your-api-key"
 ```
 
 > The above command returns JSON structured like this:
@@ -199,11 +199,11 @@ curl -XGET "https://apps.betacrash.com/v1/applications/1/builds/latest" --header
 }
 ```
 
-This endpoint uploads a build to BetaCrash.
+This endpoint uploads a build to TestCenter.
 
 ### HTTP Request
 
-`GET https://apps.betacrash.com/v1/applications/<app_id>/builds/latest`
+`GET https://testplatform.plusqa.com/v1/applications/<app_id>/builds/latest`
 
 ### Parameters
 
@@ -222,11 +222,11 @@ AVAILABILITY="10_minutes" #10_minutes, 1_hour, 3_hours, 6_hours, 12_hours, 24_ho
 TMP_FILE_PATH="/tmp/${PRODUCT_NAME}.ipa"
 
 xcrun -sdk iphoneos PackageApplication "$ARCHIVE_PRODUCTS_PATH/$INSTALL_PATH/$WRAPPER_NAME" -o "${TMP_FILE_PATH}"
-OUTPUT=$(/usr/bin/curl "https://apps.betacrash.com/api/upload" -F api_key="${API_KEY}" -F app_id="${APP_ID}" -F file=@"${TMP_FILE_PATH}" -F availability="${AVAILABILITY}" -F passcode="${PASSWORD}") #the password parametre is optional here
+OUTPUT=$(/usr/bin/curl "https://testplatform.plusqa.com/api/upload" -F api_key="${API_KEY}" -F app_id="${APP_ID}" -F file=@"${TMP_FILE_PATH}" -F availability="${AVAILABILITY}" -F passcode="${PASSWORD}") #the password parametre is optional here
 URL=$(echo $OUTPUT | python -m json.tool | sed -n -e '/"file_url":/ s/^.*"\(.*\)".*/\1/p')
 
 echo $URL | pbcopy
-osascript -e 'display notification "Copied to clipboard: '$URL'" with title "BetaCrash"'
+osascript -e 'display notification "Copied to clipboard: '$URL'" with title "TestCenter"'
 open $URL
 ```
 To upload a build everytime you create an archive:
@@ -251,11 +251,11 @@ AVAILABILITY="10_minutes" #10_minutes, 1_hour, 3_hours, 6_hours, 12_hours, 24_ho
 TMP_FILE_PATH="/tmp/${PRODUCT_NAME}.ipa"
 
 xcrun -sdk iphoneos PackageApplication "$ARCHIVE_PRODUCTS_PATH/$INSTALL_PATH/$WRAPPER_NAME" -o "${TMP_FILE_PATH}"
-OUTPUT=$(/usr/bin/curl "https://apps.betacrash.com/api/upload" -F api_key="${API_KEY}" -F app_id="${APP_ID}" -F file=@"${TMP_FILE_PATH}" -F availability="${AVAILABILITY}" -F passcode="${PASSWORD}") #the password parametre is optional here
+OUTPUT=$(/usr/bin/curl "https://testplatform.plusqa.com/api/upload" -F api_key="${API_KEY}" -F app_id="${APP_ID}" -F file=@"${TMP_FILE_PATH}" -F availability="${AVAILABILITY}" -F passcode="${PASSWORD}") #the password parametre is optional here
 URL=$(echo $OUTPUT | python -m json.tool | sed -n -e '/"file_url":/ s/^.*"\(.*\)".*/\1/p')
 
 echo $URL | pbcopy
-osascript -e 'display notification "Copied to clipboard: '$URL'" with title "BetaCrash"'
+osascript -e 'display notification "Copied to clipboard: '$URL'" with title "TestCenter"'
 open $URL
 ```
 
