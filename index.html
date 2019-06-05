@@ -26,7 +26,8 @@
       </span>
     </a>
     <div class="tocify-wrapper">
-      <img src="images/logo.png" alt="Logo" />
+      <img height="40" width="40" id="logo" src="https://plusqa-assets.sfo2.cdn.digitaloceanspaces.com/bc-images/assets/pqa-icon-orange.png" alt="Pqa icon orange" />
+      <p class="white-text">Plus QA TestCenter</p>
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
         </div>
@@ -37,7 +38,7 @@
       <div id="toc">
       </div>
         <ul class="toc-footer">
-            <li><a href='https://apps.betacrash.com'>Sign Up for an API Key</a></li>
+            <li><a href='https://testplatform.plusqa.com'>Sign Up for an API Key</a></li>
             <li><a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -46,7 +47,7 @@
       <div class="content">
         <h1 id="introduction">Introduction</h1>
 
-<p>Welcome to the BetaCrash API! You can use our API to access BetaCrash API endpoints, which can get information on the applications you have access to, builds uploaded, even upload new builds!</p>
+<p>Welcome to the TestCenter API! You can use our API to access TestCenter API endpoints, which can get information on the applications you have access to, builds uploaded, even upload new builds!</p>
 
 <h1 id="authentication">Authentication</h1>
 
@@ -54,16 +55,16 @@
 <p>To authorize, use this code:</p>
 </blockquote>
 <pre><code class="highlight shell"><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"https://apps.betacrash.com/v1/applications"</span> --header <span class="s2">"api-key"</span>: <span class="s2">"your-api-key"</span>
+curl <span class="s2">"https://testplatform.plusqa.com/v1/applications"</span> --header <span class="s2">"api-key"</span>: <span class="s2">"your-api-key"</span>
 </code></pre>
 
 <blockquote>
 <p>Make sure to replace <code class="prettyprint">your-api-key</code> with your API key.</p>
 </blockquote>
 
-<p>BetaCrash uses API keys to allow access to the API. You can find your BetaCrash API key in the <a href="https://apps.betacrash.com/accounts">accounts section</a>.</p>
+<p>TestCenter uses API keys to allow access to the API. You can find your TestCenter API key in the <a href="https://testplatform.plusqa.com/accounts">accounts section</a>.</p>
 
-<p>BetaCrash expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>TestCenter expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
 
 <p><code class="prettyprint">api-key: your-api-key</code></p>
 
@@ -73,10 +74,10 @@ You must replace `your-api-key` with your personal API key.
 
 <h1 id="applications">Applications</h1>
 
-<p>Applications are to Betacrash, what folders are to file systems. It allows you to organize the builds you upload.  </p>
+<p>Applications are to TestCenter, what folders are to file systems. It allows you to organize the builds you upload.  </p>
 
 <h2 id="get-all-applications">Get All applications</h2>
-<pre><code class="highlight shell">curl <span class="s2">"https://apps.betacrash.com/v1/applications"</span> --header <span class="s2">"api-key"</span>: <span class="s2">"your-api-key"</span>
+<pre><code class="highlight shell">curl <span class="s2">"https://testplatform.plusqa.com/v1/applications"</span> --header <span class="s2">"api-key"</span>: <span class="s2">"your-api-key"</span>
 </code></pre>
 
 <blockquote>
@@ -102,10 +103,10 @@ You must replace `your-api-key` with your personal API key.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://apps.betacrash.com/v1/applications</code></p>
+<p><code class="prettyprint">GET https://testplatform.plusqa.com/v1/applications</code></p>
 
 <h2 id="create-an-application">Create an application</h2>
-<pre><code class="highlight shell">curl -XPOST <span class="s2">"https://apps.betacrash.com/v1/applications"</span> --header <span class="s2">"api-key"</span>: <span class="s2">"your-api-key"</span>
+<pre><code class="highlight shell">curl -XPOST <span class="s2">"https://testplatform.plusqa.com/v1/applications"</span> --header <span class="s2">"api-key"</span>: <span class="s2">"your-api-key"</span>
   -F <span class="s1">'application[name]=Example App'</span>
   -F <span class="nv">file</span><span class="o">=</span>@<span class="s2">"/path/to/the/image/to/upload"</span>
 </code></pre>
@@ -126,7 +127,7 @@ You must replace `your-api-key` with your personal API key.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://apps.betacrash.com/v1/applications</code></p>
+<p><code class="prettyprint">POST https://testplatform.plusqa.com/v1/applications</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -147,7 +148,7 @@ You must replace `your-api-key` with your personal API key.
 </tbody></table>
 
 <h2 id="delete-an-application">Delete an application</h2>
-<pre><code class="highlight shell">curl -XDELETE <span class="s2">"https://apps.betacrash.com/v1/applications/1"</span> --header <span class="s2">"api-key"</span>: <span class="s2">"your-api-key"</span>
+<pre><code class="highlight shell">curl -XDELETE <span class="s2">"https://testplatform.plusqa.com/v1/applications/1"</span> --header <span class="s2">"api-key"</span>: <span class="s2">"your-api-key"</span>
 </code></pre>
 
 <blockquote>
@@ -162,7 +163,7 @@ You must replace `your-api-key` with your personal API key.
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">DELETE https://apps.betacrash.com/v1/applications/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">DELETE https://testplatform.plusqa.com/v1/applications/&lt;ID&gt;</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -182,7 +183,7 @@ You must replace `your-api-key` with your personal API key.
 
 <h2 id="upload-a-build">Upload a build</h2>
 <pre><code class="highlight shell">  curl -X POST <span class="se">\</span>
-  https://apps.betacrash.com/v1/builds <span class="se">\</span>
+  https://testplatform.plusqa.com/v1/builds <span class="se">\</span>
   -H <span class="s1">'api-key: &lt;your-api-key&gt;'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: multipart/form-data \
   -F availability=1_week \
@@ -197,15 +198,15 @@ You must replace `your-api-key` with your personal API key.
 </blockquote>
 <pre><code class="highlight json"><span class="p">{</span><span class="w">
   </span><span class="s2">"success"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"file_url"</span><span class="p">:</span><span class="s2">"https://apps.betacrash.com/get/dovjek"</span><span class="w">
+  </span><span class="s2">"file_url"</span><span class="p">:</span><span class="s2">"https://testplatform.plusqa.com/get/dovjek"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint uploads a build to BetaCrash.</p>
+<p>This endpoint uploads a build to TestCenter.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">POST https://apps.betacrash.com/v1/builds</code></p>
+<p><code class="prettyprint">POST https://testplatform.plusqa.com/v1/builds</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -242,7 +243,7 @@ You must replace `your-api-key` with your personal API key.
 </tbody></table>
 
 <h2 id="latest-build">Latest build</h2>
-<pre><code class="highlight shell">curl -XGET <span class="s2">"https://apps.betacrash.com/v1/applications/1/builds/latest"</span> --header <span class="s2">"api-key"</span>: <span class="s2">"your-api-key"</span>
+<pre><code class="highlight shell">curl -XGET <span class="s2">"https://testplatform.plusqa.com/v1/applications/1/builds/latest"</span> --header <span class="s2">"api-key"</span>: <span class="s2">"your-api-key"</span>
 </code></pre>
 
 <blockquote>
@@ -261,11 +262,11 @@ You must replace `your-api-key` with your personal API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint uploads a build to BetaCrash.</p>
+<p>This endpoint uploads a build to TestCenter.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET https://apps.betacrash.com/v1/applications/&lt;app_id&gt;/builds/latest</code></p>
+<p><code class="prettyprint">GET https://testplatform.plusqa.com/v1/applications/&lt;app_id&gt;/builds/latest</code></p>
 
 <h3 id="parameters">Parameters</h3>
 
@@ -291,11 +292,11 @@ You must replace `your-api-key` with your personal API key.
 <span class="nv">TMP_FILE_PATH</span><span class="o">=</span><span class="s2">"/tmp/</span><span class="k">${</span><span class="nv">PRODUCT_NAME</span><span class="k">}</span><span class="s2">.ipa"</span>
 
 xcrun -sdk iphoneos PackageApplication <span class="s2">"</span><span class="nv">$ARCHIVE_PRODUCTS_PATH</span><span class="s2">/</span><span class="nv">$INSTALL_PATH</span><span class="s2">/</span><span class="nv">$WRAPPER_NAME</span><span class="s2">"</span> -o <span class="s2">"</span><span class="k">${</span><span class="nv">TMP_FILE_PATH</span><span class="k">}</span><span class="s2">"</span>
-<span class="nv">OUTPUT</span><span class="o">=</span><span class="k">$(</span>/usr/bin/curl <span class="s2">"https://apps.betacrash.com/api/upload"</span> -F <span class="nv">api_key</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">API_KEY</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">app_id</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">APP_ID</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">file</span><span class="o">=</span>@<span class="s2">"</span><span class="k">${</span><span class="nv">TMP_FILE_PATH</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">availability</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">AVAILABILITY</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">passcode</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PASSWORD</span><span class="k">}</span><span class="s2">"</span><span class="k">)</span> <span class="c">#the password parametre is optional here</span>
+<span class="nv">OUTPUT</span><span class="o">=</span><span class="k">$(</span>/usr/bin/curl <span class="s2">"https://testplatform.plusqa.com/api/upload"</span> -F <span class="nv">api_key</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">API_KEY</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">app_id</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">APP_ID</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">file</span><span class="o">=</span>@<span class="s2">"</span><span class="k">${</span><span class="nv">TMP_FILE_PATH</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">availability</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">AVAILABILITY</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">passcode</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PASSWORD</span><span class="k">}</span><span class="s2">"</span><span class="k">)</span> <span class="c">#the password parametre is optional here</span>
 <span class="nv">URL</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$OUTPUT</span> | python -m json.tool | sed -n -e <span class="s1">'/"file_url":/ s/^.*"\(.*\)".*/\1/p'</span><span class="k">)</span>
 
 <span class="nb">echo</span> <span class="nv">$URL</span> | pbcopy
-osascript -e <span class="s1">'display notification "Copied to clipboard: '</span><span class="nv">$URL</span><span class="s1">'" with title "BetaCrash"'</span>
+osascript -e <span class="s1">'display notification "Copied to clipboard: '</span><span class="nv">$URL</span><span class="s1">'" with title "TestCenter"'</span>
 open <span class="nv">$URL</span>
 </code></pre>
 
@@ -322,11 +323,11 @@ open <span class="nv">$URL</span>
 <span class="nv">TMP_FILE_PATH</span><span class="o">=</span><span class="s2">"/tmp/</span><span class="k">${</span><span class="nv">PRODUCT_NAME</span><span class="k">}</span><span class="s2">.ipa"</span>
 
 xcrun -sdk iphoneos PackageApplication <span class="s2">"</span><span class="nv">$ARCHIVE_PRODUCTS_PATH</span><span class="s2">/</span><span class="nv">$INSTALL_PATH</span><span class="s2">/</span><span class="nv">$WRAPPER_NAME</span><span class="s2">"</span> -o <span class="s2">"</span><span class="k">${</span><span class="nv">TMP_FILE_PATH</span><span class="k">}</span><span class="s2">"</span>
-<span class="nv">OUTPUT</span><span class="o">=</span><span class="k">$(</span>/usr/bin/curl <span class="s2">"https://apps.betacrash.com/api/upload"</span> -F <span class="nv">api_key</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">API_KEY</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">app_id</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">APP_ID</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">file</span><span class="o">=</span>@<span class="s2">"</span><span class="k">${</span><span class="nv">TMP_FILE_PATH</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">availability</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">AVAILABILITY</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">passcode</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PASSWORD</span><span class="k">}</span><span class="s2">"</span><span class="k">)</span> <span class="c">#the password parametre is optional here</span>
+<span class="nv">OUTPUT</span><span class="o">=</span><span class="k">$(</span>/usr/bin/curl <span class="s2">"https://testplatform.plusqa.com/api/upload"</span> -F <span class="nv">api_key</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">API_KEY</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">app_id</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">APP_ID</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">file</span><span class="o">=</span>@<span class="s2">"</span><span class="k">${</span><span class="nv">TMP_FILE_PATH</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">availability</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">AVAILABILITY</span><span class="k">}</span><span class="s2">"</span> -F <span class="nv">passcode</span><span class="o">=</span><span class="s2">"</span><span class="k">${</span><span class="nv">PASSWORD</span><span class="k">}</span><span class="s2">"</span><span class="k">)</span> <span class="c">#the password parametre is optional here</span>
 <span class="nv">URL</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="nv">$OUTPUT</span> | python -m json.tool | sed -n -e <span class="s1">'/"file_url":/ s/^.*"\(.*\)".*/\1/p'</span><span class="k">)</span>
 
 <span class="nb">echo</span> <span class="nv">$URL</span> | pbcopy
-osascript -e <span class="s1">'display notification "Copied to clipboard: '</span><span class="nv">$URL</span><span class="s1">'" with title "BetaCrash"'</span>
+osascript -e <span class="s1">'display notification "Copied to clipboard: '</span><span class="nv">$URL</span><span class="s1">'" with title "TestCenter"'</span>
 open <span class="nv">$URL</span>
 </code></pre>
 
